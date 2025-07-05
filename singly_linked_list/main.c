@@ -19,7 +19,7 @@ ListNode* insert_first(ListNode *head, element value)
 {
     ListNode *new_node = (ListNode *)malloc(sizeof(ListNode));
     new_node->data = value;
-    new_node->link = /*(struct ListNode*)*/head;
+    new_node->link = head;
 
     head = new_node;
     return head;
