@@ -40,19 +40,19 @@ ListNode *delete_first(ListNode *head)
 {
     if (head == NULL) return NULL;
 
-    ListNode* to_remove = head;
+    ListNode* target = head;
     head = head->link;
 
-    free(to_remove);
+    free(target);
     return head;
 }
 
 // pre가 가리키는 노드의 다음 노드 삭제
 ListNode *delete(ListNode *head, ListNode *pre)
 {
-    ListNode *to_remove = pre->link;
-    pre->link = to_remove->link;
-    free(to_remove);
+    ListNode *target = pre->link;
+    pre->link = target->link;
+    free(target);
 
     return head;
 }
