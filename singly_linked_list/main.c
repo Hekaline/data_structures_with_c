@@ -91,6 +91,47 @@ element get_entry(ListNode *head, int index)
     return target->data;
 }
 
+ListNode* concat_list(ListNode *head1, ListNode *head2)
+{
+    if (head1 == NULL)
+        return head2;
+
+    if (head2 == NULL)
+        return head1;
+
+    ListNode *p;
+    p = head1;
+
+    while (p->link != NULL)
+    {
+        p = p->link;
+    }
+
+    p->link = head2;
+    return head1;
+}
+
+ListNode* reverse_list(ListNode *head)
+{
+    ListNode *next, *target, *prev;
+
+    next = head; // 맨 앞쪽 노드, target->link 변경 전 "원래" 앞 노드 저장 및 NULL 체크
+    target = NULL; // 현재 타깃
+
+    while (next != NULL)
+    {
+        // 전체적으로 뒤쪽에 가까운 노드 순으로 앞으로 민다
+
+        prev = target; // 뒤 노드를 끌고 옴
+        target = next; // 타깃도 앞으로
+        next = next->link; // 다음 노드를 앞으로 보낸다
+
+        target->link = prev; // 현 타깃의 링크를 뒤쪽에 연결
+    }
+
+    return target;
+}
+
 int main(void)
 {
     ListNode *head = NULL;
@@ -102,6 +143,10 @@ int main(void)
     }
 
     printf("got entry of idx 3: %d\n", get_entry(head, 3));
+
+    // 0->1->2->3->4->NULL
+    head = reverse_list(head);
+
     for (int i = 0; i < 5; i++)
     {
         head = delete_first(head);
