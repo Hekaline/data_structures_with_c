@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 typedef int element;
-typedef struct
+typedef struct ListNode
 {
     element data;
     struct ListNode *link;
