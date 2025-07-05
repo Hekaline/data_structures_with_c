@@ -66,6 +66,31 @@ void print_list(ListNode *head)
     printf("NULL\n");
 }
 
+element get_entry(ListNode *head, int index)
+{
+    if (head == NULL)
+    {
+        error("리스트가 비었습니다");
+    }
+
+    if (index < 0)
+    {
+        error("인덱스가 0보다 작습니다.");
+    }
+
+    ListNode *target = head;
+    for (int i = 0; i < index; i++)
+    {
+        target = target->link;
+        if (target == NULL)
+        {
+            error("인덱스가 범위를 초과하였습니다");
+        }
+    }
+
+    return target->data;
+}
+
 int main(void)
 {
     ListNode *head = NULL;
@@ -75,6 +100,8 @@ int main(void)
         head = insert_first(head, i);
         print_list(head);
     }
+
+    printf("got entry of idx 3: %d\n", get_entry(head, 3));
     for (int i = 0; i < 5; i++)
     {
         head = delete_first(head);
