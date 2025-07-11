@@ -4,7 +4,7 @@
 #define MAX_SIZE 20
 #define SWAP(x, y, temp) ((temp) = (x), (x) = (y), (y) = (temp));
 
-void selection_sort(int list[], int n)
+void selection_sort(int arr[], int n)
 {
     int least, temp;
     for (int i = 0; i < n; i++)
@@ -12,11 +12,11 @@ void selection_sort(int list[], int n)
         least = i;
         for (int j = i + 1; j < n; j++)
         {
-            if (list[j] < list[least])
+            if (arr[j] < arr[least])
                 least = j;
         }
 
-        SWAP(list[i], list[least], temp);
+        SWAP(arr[i], arr[least], temp);
     }
 }
 
