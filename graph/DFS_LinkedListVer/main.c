@@ -53,22 +53,10 @@ void insert_edge(GraphType *g, int start, int end)
     }
 
     LinkedList *new_node = (LinkedList *)malloc(sizeof(LinkedList));
-    new_node->link = NULL;
+    new_node->link = g->adj_list[start];
     new_node->val = end;
 
-    if (g->adj_list[start] == NULL)
-    {
-        g->adj_list[start] = new_node;
-    } else
-    {
-        LinkedList *head = g->adj_list[start];
-        while (head->link != NULL)
-        {
-            head = head->link;
-        }
-
-        head->link = new_node;
-    }
+    g->adj_list[start] = new_node;
 }
 
 // 인접 행렬로 표현된 그래프에 대한 깊이 우선 탐색
