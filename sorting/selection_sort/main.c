@@ -6,17 +6,16 @@
 
 void selection_sort(int arr[], int n)
 {
-    int least, temp;
-    for (int i = 0; i < n; i++)
+    int key, j;
+    for (int i = 1; i < n; i++)
     {
-        least = i;
-        for (int j = i + 1; j < n; j++)
+        key = arr[i];
+        for (j = i - 1; j >= 0 && arr[j] > key; j--)
         {
-            if (arr[j] < arr[least])
-                least = j;
+            arr[j + 1] = arr[j];
         }
 
-        SWAP(arr[i], arr[least], temp);
+        arr[j + 1] = key;
     }
 }
 
@@ -28,6 +27,10 @@ int main(void)
     srand(time(NULL));
     for (int i = 0; i < n; i++)
         arr[i] = rand() % 100;
+
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    puts("");
 
     selection_sort(arr, n);
 
