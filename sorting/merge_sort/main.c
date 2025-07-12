@@ -50,16 +50,16 @@ int main(void)
 
     srand(time(NULL));
 
-    for (int i = 0; i < MAX_VERTICES; i++)
+    for (int i = 0; i < n; i++)
     {
         arr[i] = rand() % 100;
         printf("%d ", arr[i]);
     }
 
     printf("\n");
-    merge_sort(arr, 0, MAX_VERTICES - 1);
+    merge_sort(arr, 0, n - 1);
 
-    for (int i = 0; i < MAX_VERTICES; i++)
+    for (int i = 0; i < n; i++)
     {
         printf("%d ", arr[i]);
     }
