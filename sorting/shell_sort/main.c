@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAX_VERTICES 20
+#define MAX_SIZE 20
 
 void inc_insertion_sort(int arr[], int left, int right, int gap)
 {
@@ -36,8 +36,8 @@ void shell_sort(int arr[], int n)
 
 int main(void)
 {
-    int arr[MAX_VERTICES];
-    int n = MAX_VERTICES;
+    int arr[MAX_SIZE];
+    int n = MAX_SIZE;
 
     srand(time(NULL));
 

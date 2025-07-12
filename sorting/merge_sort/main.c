@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define MAX_VERTICES 20
+#define MAX_SIZE 20
 
-int sorted[MAX_VERTICES];
+int sorted[MAX_SIZE];
 
 void merge(int arr[], int left, int right)
 {
@@ -45,8 +45,8 @@ void merge_sort(int arr[], int left, int right)
 
 int main(void)
 {
-    int n = MAX_VERTICES;
-    int arr[MAX_VERTICES];
+    int n = MAX_SIZE;
+    int arr[MAX_SIZE];
 
     srand(time(NULL));
 
