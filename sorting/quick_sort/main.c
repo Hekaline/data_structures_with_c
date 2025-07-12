@@ -57,6 +57,9 @@ int main(void)
     }
     printf("\n");
 
+    // qsort, which is in <stdlib.h>, neither C nor POSIX standards require this function to be implemented
+    // using quicksort or make any complexity or stability guarantees. (https://en.cppreference.com/w/c/algorithm/qsort.html)
+    // 즉, <stdlib.h> 내의 qsort 함수는 퀵소트로 구현됨이 보장되지 않음.
     quick_sort(arr, 0, n - 1);
 
     for (int i = 0; i < n; i++)
